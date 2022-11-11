@@ -57,11 +57,11 @@
                     android:autofillHints="@null" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <co.araujoarthur.instagramremake.login.view.LoadingButton
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
                 android:id="@+id/login_btn_enter"
-                style="@style/Theme.InstagramRemake.Button"
-                android:enabled="false"
-                android:text="@string/enter" />
+                app:ola="@string/enter" />
 
             <FrameLayout
                 style="@style/Theme.InstagramRemake.FormContainer"
