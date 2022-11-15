@@ -1,10 +1,11 @@
 package co.araujoarthur.instagramremake.login.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import co.araujoarthur.instagramremake.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -22,11 +23,16 @@ class LoginActivity : AppCompatActivity() {
 
 
 
-        findViewById<Button>(R.id.login_btn_enter).setOnClickListener {
-            findViewById<TextInputLayout>(R.id.login_edit_email_input)
-                .error = "Digite um e-mail valido"
-            findViewById<TextInputLayout>(R.id.login_edit_password_input)
-                .error = "Senha incorreta"
+        val button: LoadingButton = findViewById(R.id.login_btn_enter)
+        button.setOnClickListener {
+            button.showProgress(true)
+            Handler(Looper.getMainLooper()).postDelayed({
+                button.showProgress(false)
+                findViewById<TextInputLayout>(R.id.login_edit_email_input)
+                    .error = "Digite um e-mail valido"
+                findViewById<TextInputLayout>(R.id.login_edit_password_input)
+                    .error = "Senha incorreta"
+            }, 2000)
         }
 
     }
@@ -36,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            findViewById<Button>(R.id.login_btn_enter).isEnabled = s.toString().isNotEmpty()
+            findViewById<LoadingButton>(R.id.login_btn_enter).isEnabled = s.toString().isNotEmpty()
         }
 
         override fun afterTextChanged(s: Editable?) {
