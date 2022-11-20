@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import co.araujoarthur.instagramremake.R
 
-class RegisterEmailFragment: Fragment() {
+class RegisterWelcomeFragment: Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_register_email, container, false)
-
+        return inflater.inflate(R.layout.fragment_register_welcome, container, false)
     }
 }

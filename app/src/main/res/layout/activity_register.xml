@@ -10,10 +10,10 @@
 
 
   <fragment
-      android:name="co.araujoarthur.instagramremake.register.view.RegisterNamePassWordFragment"
+      android:name="co.araujoarthur.instagramremake.register.view.RegisterPhotoFragment"
       android:id="@+id/register_fragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      tools:layout="@layout/fragment_register_name_password"
+      tools:layout="@layout/fragment_register_photo"
       />
 </LinearLayout>
