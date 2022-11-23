@@ -48,8 +48,15 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:id="@+id/register_btn_enter"
-                app:ola="@string/enter" />
+                app:ola="@string/add_photo" />
 
+            <Button
+                android:id="@+id/register_btn_next"
+                android:text="@string/next"
+                style="@style/Theme.InstagramRemake.Link"
+                android:textColor="@color/blue_enabled"
+                android:textStyle="bold"
+                />
 
         </LinearLayout>
 
