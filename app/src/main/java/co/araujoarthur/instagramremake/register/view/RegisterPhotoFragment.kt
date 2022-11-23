@@ -23,8 +23,21 @@ class RegisterPhotoFragment: Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         val dialogCustom = DialogCustom(requireContext())
+        dialogCustom.setTitle(R.string.define_photo_profile)
         dialogCustom.addButton(R.string.photo, R.string.gallery) {
-            Log.i("Test", (it as TextView).text.toString())
+            when (it.id) {
+                R.string.photo -> {
+                    Log.i("Test", "photo")
+                    //TODO: Abrir camera
+                }
+                R.string.gallery -> {
+                    Log.i("test", "gallery")
+                    //TODO: abrir galeria
+                }
+            }
+
+
+
             dialogCustom.dismiss()
         }
 

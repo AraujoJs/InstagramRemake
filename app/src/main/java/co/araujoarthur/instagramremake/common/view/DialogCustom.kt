@@ -10,14 +10,23 @@ import co.araujoarthur.instagramremake.R
 import org.w3c.dom.Text
 
 class DialogCustom(context: Context): Dialog(context) {
-
     private lateinit var linearLayout: LinearLayout
     private lateinit var dialogLayouts: Array<TextView>
+
+    private lateinit var txtTitle: TextView
+
+    private var titleId: Int? = null
+
+
+    override fun setTitle(titleId: Int) {
+        this.titleId = titleId
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.dialog_custom)
         linearLayout = findViewById(R.id.dialog_container)
+        txtTitle = findViewById(R.id.dialog_title)
     }
 
     fun addButton(vararg texts: Int, l: View.OnClickListener) {
@@ -30,12 +39,25 @@ class DialogCustom(context: Context): Dialog(context) {
             dialogLayouts[index].setText(texts[index])
             dialogLayouts[index].setOnClickListener(l)
         }
+
+        texts.forEachIndexed { index, textId ->
+            dialogLayouts[index].id = textId
+            dialogLayouts[index].setText(textId)
+            dialogLayouts[index].setOnClickListener(l)
+        }
     }
 
     override fun show() {
         super.show()
         for (layout in dialogLayouts) {
-            linearLayout.addView(layout)
+
+            titleId?.let {
+                txtTitle.setText(it)
+            }
+
+            val layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT)
+            layoutParams.setMargins(30, 50, 30, 50)
+            linearLayout.addView(layout, layoutParams)
         }
     }
 }
