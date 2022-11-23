@@ -12,7 +12,7 @@ import org.w3c.dom.Text
 class DialogCustom(context: Context): Dialog(context) {
 
     private lateinit var linearLayout: LinearLayout
-    private lateinit var textViews: Array<TextView>
+    private lateinit var dialogLayouts: Array<TextView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,20 +22,20 @@ class DialogCustom(context: Context): Dialog(context) {
 
     fun addButton(vararg texts: Int, l: View.OnClickListener) {
 
-        textViews = Array(texts.size) {
+        dialogLayouts = Array(texts.size) {
             TextView(context)
         }
 
-        textViews.forEachIndexed { index, textView ->
-            textViews[index].setText(texts[index])
-            textViews[index].setOnClickListener(l)
+        dialogLayouts.forEachIndexed { index, textView ->
+            dialogLayouts[index].setText(texts[index])
+            dialogLayouts[index].setOnClickListener(l)
         }
     }
 
     override fun show() {
         super.show()
-        textViews.forEachIndexed { index, textView ->
-            linearLayout.addView(textView)
+        for (layout in dialogLayouts) {
+            linearLayout.addView(layout)
         }
     }
 }
