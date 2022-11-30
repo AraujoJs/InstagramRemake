@@ -5,12 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import co.araujoarthur.instagramremake.R
-import co.araujoarthur.instagramremake.common.view.DialogCustom
+import co.araujoarthur.instagramremake.common.view.CustomDialog
 
-class RegisterPhotoFragment: Fragment(){
+class RegisterPhotoFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,26 +21,21 @@ class RegisterPhotoFragment: Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val dialogCustom = DialogCustom(requireContext())
-        dialogCustom.setTitle(R.string.define_photo_profile)
-        dialogCustom.addButton(R.string.photo, R.string.gallery) {
+        val customDialog = CustomDialog(requireContext())
+        customDialog.addButton(R.string.gallery, R.string.photo) {
             when (it.id) {
-                R.string.photo -> {
-                    Log.i("Test", "photo")
-                    //TODO: Abrir camera
-                }
                 R.string.gallery -> {
-                    Log.i("test", "gallery")
-                    //TODO: abrir galeria
+                    // TODO: Open gallery
+                    Log.i("Test", "Open gallery")
+                }
+
+                R.string.photo -> {
+                    // TODO: Open Camera
+                    Log.i("Test", "Open camera")
                 }
             }
-
-
-
-            dialogCustom.dismiss()
         }
-
-        dialogCustom.show()
-
+        customDialog.show()
     }
+
 }
