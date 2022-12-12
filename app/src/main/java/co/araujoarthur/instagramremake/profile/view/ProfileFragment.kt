@@ -26,11 +26,10 @@ class ProfileFragment : Fragment() {
         rv.adapter = PostAdapter()
     }
 
-    private class PostAdapter : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+    private class PostAdapter: RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
             return PostViewHolder(
-                LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_profile_grid, parent, false)
+                LayoutInflater.from(parent.context).inflate(R.layout.item_profile_grid, parent, false)
             )
         }
 
@@ -42,13 +41,12 @@ class ProfileFragment : Fragment() {
             return 30
         }
 
-        inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        inner class PostViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             fun bind(imageId: Int) {
-                itemView.findViewById<ImageView>(R.id.item_profile_image_grid)
-                    .setImageResource(imageId)
-
+                itemView.findViewById<ImageView>(R.id.item_profile_image_grid).setImageResource(imageId)
             }
         }
+
     }
 
 }
