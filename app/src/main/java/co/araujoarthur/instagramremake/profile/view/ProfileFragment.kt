@@ -1,9 +1,7 @@
 package co.araujoarthur.instagramremake.profile.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -24,6 +22,16 @@ class ProfileFragment : Fragment() {
         val rv = view.findViewById<RecyclerView>(R.id.rv_profile)
         rv.layoutManager = GridLayoutManager(requireContext(), 3)
         rv.adapter = PostAdapter()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        setHasOptionsMenu(true)
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        return inflater.inflate(R.menu.menu_profile_main, menu)
     }
 
     private class PostAdapter: RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
