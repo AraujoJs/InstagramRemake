@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/home_img_profile"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_insta_profile_thin"
+        app:civ_border_color="@color/gray_border"
+        app:civ_border_width="1dp"
+        app:civ_circle_background_color="@color/gray_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/Theme.InstagramRemake.TextViewBase"
+        android:layout_marginStart="8dp"
+        android:text="@string/username"
+        app:layout_constraintBottom_toBottomOf="@id/home_img_profile"
+        app:layout_constraintStart_toEndOf="@id/home_img_profile"
+        app:layout_constraintTop_toTopOf="@id/home_img_profile" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/ic_more"
+        app:layout_constraintBottom_toBottomOf="@id/home_img_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/home_img_profile" />
+
+    <ImageView
+        android:id="@+id/home_img_post"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginTop="6dp"
+        android:background="@color/black"
+        android:src="@drawable/ic_insta_add"
+        app:layout_constraintStart_toStartOf="@id/home_img_profile"
+        app:layout_constraintTop_toBottomOf="@id/home_img_profile" />
+
+    <LinearLayout
+        android:id="@+id/container_home_icon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_img_post">
+
+        <ImageView
+            android:id="@+id/home_img_hearth"
+            style="@style/Theme.InstagramRemake.Icon"
+            android:src="@drawable/ic_insta_heart"/>
+
+        <ImageView
+            android:id="@+id/home_img_comment"
+            style="@style/Theme.InstagramRemake.Icon"
+            android:src="@drawable/ic_insta_comment" />
+
+        <ImageView
+            android:id="@+id/home_img_send"
+            style="@style/Theme.InstagramRemake.Icon"
+            android:src="@drawable/ic_insta_send" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/home_txt_desc"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_home_icon"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/agree_terms_policy" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
