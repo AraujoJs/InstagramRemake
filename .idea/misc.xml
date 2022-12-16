@@ -25,12 +25,14 @@
         <entry key="app/src/main/res/layout/fragment_register_name_password.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_register_photo.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/fragment_register_welcome.xml" value="0.3609375" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/gride_profile.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/item_feed_post.xml" value="0.3490740740740741" />
         <entry key="app/src/main/res/layout/item_home_post.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/layout/item_post.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/layout/item_profile_grid.xml" value="0.27835051546391754" />
         <entry key="app/src/main/res/layout/item_profile_gride.xml" value="0.35989583333333336" />
+        <entry key="app/src/main/res/layout/item_search_profile.xml" value="0.3609375" />
         <entry key="app/src/main/res/menu/main_bottom_nav.xml" value="0.1" />
         <entry key="app/src/main/res/menu/menu_bottom_feed_post.xml" value="0.35989583333333336" />
         <entry key="app/src/main/res/menu/menu_bottom_nav.xml" value="0.3609375" />

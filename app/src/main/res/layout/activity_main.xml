@@ -39,10 +39,10 @@
         <fragment
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             android:id="@+id/main_fragment"
-            android:name="co.araujoarthur.instagramremake.home.view.HomeFragment"
+            android:name="co.araujoarthur.instagramremake.search.view.SearchFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout="@layout/fragment_home" />
+            tools:layout="@layout/fragment_search" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
