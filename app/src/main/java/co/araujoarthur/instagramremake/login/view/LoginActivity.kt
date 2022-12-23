@@ -5,25 +5,28 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import co.araujoarthur.instagramremake.R
+import co.araujoarthur.instagramremake.databinding.ActivityLoginBinding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val editTextEmail = findViewById<TextInputEditText>(R.id.login_edit_email)
-        val editTextPassword = findViewById<TextInputEditText>(R.id.login_edit_password)
-
-        editTextEmail.addTextChangedListener(watcher)
-        editTextPassword.addTextChangedListener(watcher)
+        binding.loginEditEmail.addTextChangedListener(watcher)
+        binding.loginEditPassword.addTextChangedListener(watcher)
 
 
 
-        val button: LoadingButton = findViewById(R.id.login_btn_enter)
+        val button = binding.loginBtnEnter
         button.setOnClickListener {
             button.showProgress(true)
             Handler(Looper.getMainLooper()).postDelayed({
@@ -42,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-            findViewById<LoadingButton>(R.id.login_btn_enter).isEnabled = s.toString().isNotEmpty()
+            binding.loginBtnEnter.isEnabled = s.toString().isNotEmpty()
         }
 
         override fun afterTextChanged(s: Editable?) {

@@ -7,21 +7,25 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import co.araujoarthur.instagramremake.R
+import co.araujoarthur.instagramremake.databinding.FragmentProfileBinding
 
-class ProfileFragment : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
+
+    private var binding: FragmentProfileBinding? = null
+
+    override fun onDestroy() {
+        binding = null
+        super.onDestroy()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rv = view.findViewById<RecyclerView>(R.id.rv_profile)
-        rv.layoutManager = GridLayoutManager(requireContext(), 3)
-        rv.adapter = PostAdapter()
+        binding = FragmentProfileBinding.bind(view)
+
+        val rv = binding?.rvProfile
+
+        rv?.layoutManager = GridLayoutManager(requireContext(), 3)
+        rv?.adapter = PostAdapter()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
