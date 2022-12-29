@@ -14,6 +14,6 @@ interface Login {
         fun displayEmailFailure(emailError: Int?)
         fun displayPasswordFailure(passwordError: Int?)
         fun onUserAuthenticated()
-        fun onUserUnAuthorized()
+        fun onUserUnAuthorized(message: String)
     }
 }

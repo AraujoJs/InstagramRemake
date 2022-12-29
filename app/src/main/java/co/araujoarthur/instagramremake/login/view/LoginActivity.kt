@@ -1,14 +1,19 @@
 package co.araujoarthur.instagramremake.login.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import co.araujoarthur.instagramremake.R
 import co.araujoarthur.instagramremake.common.util.TextWatcher
 import co.araujoarthur.instagramremake.databinding.ActivityLoginBinding
 import co.araujoarthur.instagramremake.login.Login
+import co.araujoarthur.instagramremake.login.data.LoginFakeDataBase
+import co.araujoarthur.instagramremake.login.data.LoginRepository
 import co.araujoarthur.instagramremake.login.presentation.LoginPresenter
+import co.araujoarthur.instagramremake.main.view.MainActivity
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginActivity : AppCompatActivity(), Login.View {
@@ -20,7 +25,8 @@ class LoginActivity : AppCompatActivity(), Login.View {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        presenter = LoginPresenter(this)
+        val repository = LoginRepository(LoginFakeDataBase())
+        presenter = LoginPresenter(this, repository)
 
 
 
@@ -51,11 +57,13 @@ class LoginActivity : AppCompatActivity(), Login.View {
     }
 
     override fun onUserAuthenticated() {
-
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
     }
 
-    override fun onUserUnAuthorized() {
-
+    override fun onUserUnAuthorized(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroy() {
