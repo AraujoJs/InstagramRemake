@@ -7,6 +7,7 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import co.araujoarthur.instagramremake.R
+import co.araujoarthur.instagramremake.common.base.DependencyInjector
 import co.araujoarthur.instagramremake.common.util.TextWatcher
 import co.araujoarthur.instagramremake.databinding.ActivityLoginBinding
 import co.araujoarthur.instagramremake.login.Login
@@ -25,8 +26,7 @@ class LoginActivity : AppCompatActivity(), Login.View {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val repository = LoginRepository(LoginFakeDataBase())
-        presenter = LoginPresenter(this, repository)
+        presenter = LoginPresenter(this, DependencyInjector.loginRepository())
 
 
 
