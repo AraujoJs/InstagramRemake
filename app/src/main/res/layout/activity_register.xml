@@ -9,8 +9,7 @@
     tools:context=".register.view.RegisterActivity">
 
 
-  <fragment
-      android:name="co.araujoarthur.instagramremake.register.view.RegisterPhotoFragment"
+  <FrameLayout
       android:id="@+id/register_fragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"

@@ -15,6 +15,7 @@ import co.araujoarthur.instagramremake.login.data.LoginFakeDataBase
 import co.araujoarthur.instagramremake.login.data.LoginRepository
 import co.araujoarthur.instagramremake.login.presentation.LoginPresenter
 import co.araujoarthur.instagramremake.main.view.MainActivity
+import co.araujoarthur.instagramremake.register.view.RegisterActivity
 import com.google.android.material.textfield.TextInputLayout
 
 class LoginActivity : AppCompatActivity(), Login.View {
@@ -36,7 +37,14 @@ class LoginActivity : AppCompatActivity(), Login.View {
             loginBtnEnter.setOnClickListener {
                 presenter.login(loginEditEmail.text.toString(), loginEditPassword.text.toString())
             }
+            loginTxtRegister.setOnClickListener {
+                goToRegisterScreen()
+            }
         }
+    }
+
+    private fun goToRegisterScreen() {
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 
     private val watcher = TextWatcher {
