@@ -13,6 +13,7 @@ import co.araujoarthur.instagramremake.register.RegisterEmail
 class RegisterEmailFragment: Fragment(R.layout.fragment_register_email), RegisterEmail.View {
     override lateinit var presenter: RegisterEmail.Presenter
     private var binding: FragmentRegisterEmailBinding? = null
+    private var fragmentAttachListener: FragmentAttachListener? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,6 +30,13 @@ class RegisterEmailFragment: Fragment(R.layout.fragment_register_email), Registe
                     presenter.create(registerEditEmail.text.toString())
                 }
             }
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is FragmentAttachListener) {
+            fragmentAttachListener = context
         }
     }
 
@@ -50,6 +58,7 @@ class RegisterEmailFragment: Fragment(R.layout.fragment_register_email), Registe
     }
 
     override fun goToNameAndPasswordScreen(email: String) {
+        fragmentAttachListener?.goToNameAndPasswordScreen(email)
     }
 
     override fun onDestroy() {
