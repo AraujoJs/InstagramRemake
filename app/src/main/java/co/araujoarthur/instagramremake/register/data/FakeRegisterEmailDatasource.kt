@@ -5,11 +5,12 @@ import android.os.Looper
 import co.araujoarthur.instagramremake.common.model.Datasource
 
 class FakeRegisterEmailDatasource: RegisterEmailDatasource {
-    override fun create(email: String, callback: RegisterEmailCallback) {
+    override fun login(email: String, callback: RegisterEmailCallback) {
+
         Handler(Looper.getMainLooper()).postDelayed({
             val userAuth = Datasource.userAuth.firstOrNull { email == it.email }
             if (userAuth != null) {
-                callback.onFailure("Usuario já cadastrado")
+                callback.onFailure("Usuario já existe.")
             } else {
                 callback.onSuccess()
             }

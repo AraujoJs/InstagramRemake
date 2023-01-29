@@ -14,7 +14,7 @@ interface RegisterEmail {
         fun showProgress(enabled: Boolean)
         fun displayEmailFailure(@StringRes emailError: Int?)
         fun onEmailError(message: String)
-        fun goToNameAndPasswordScreen()
+        fun goToNameAndPasswordScreen(email: String)
 
     }
 }

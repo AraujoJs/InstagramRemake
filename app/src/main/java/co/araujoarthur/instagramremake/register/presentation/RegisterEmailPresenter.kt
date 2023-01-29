@@ -16,13 +16,15 @@ class RegisterEmailPresenter(
             view?.displayEmailFailure(R.string.invalid_email)
         } else {
             view?.showProgress(true)
-            repository.create(email, object : RegisterEmailCallback {
+            repository.login(email, object : RegisterEmailCallback {
                 override fun onSuccess() {
-                    view?.goToNameAndPasswordScreen()
+                    view?.goToNameAndPasswordScreen(email)
                 }
+
                 override fun onFailure(message: String) {
                     view?.onEmailError(message)
                 }
+
                 override fun onComplete() {
                     view?.showProgress(false)
                 }

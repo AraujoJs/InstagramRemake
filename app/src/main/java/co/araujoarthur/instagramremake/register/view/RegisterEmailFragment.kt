@@ -1,5 +1,6 @@
 package co.araujoarthur.instagramremake.register.view
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -9,7 +10,7 @@ import co.araujoarthur.instagramremake.common.util.TextWatcher
 import co.araujoarthur.instagramremake.databinding.FragmentRegisterEmailBinding
 import co.araujoarthur.instagramremake.register.RegisterEmail
 
-class RegisterEmailFragment: Fragment(R.layout.fragment_register_email), RegisterEmail.View{
+class RegisterEmailFragment: Fragment(R.layout.fragment_register_email), RegisterEmail.View {
     override lateinit var presenter: RegisterEmail.Presenter
     private var binding: FragmentRegisterEmailBinding? = null
 
@@ -48,13 +49,12 @@ class RegisterEmailFragment: Fragment(R.layout.fragment_register_email), Registe
         binding?.registerEditEmailInput?.error = message
     }
 
-    override fun goToNameAndPasswordScreen() {
-        // Passar para o proximo fragmento
+    override fun goToNameAndPasswordScreen(email: String) {
     }
 
     override fun onDestroy() {
         presenter.onDestroy()
+        binding = null
         super.onDestroy()
     }
-
 }
