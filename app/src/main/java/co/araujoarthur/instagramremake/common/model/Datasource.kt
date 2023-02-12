@@ -8,8 +8,8 @@ object Datasource {
     var sessionAuth: UserAuth? = null
 
     init {
-        userAuth.add(UserAuth(UUID.randomUUID().toString(), "userA@gmail.com", "12345678"))
-        userAuth.add(UserAuth(UUID.randomUUID().toString(), "userB@gmail.com", "87654321"))
+        userAuth.add(UserAuth(UUID.randomUUID().toString(), "userA@gmail.com", "UserA", "12345678"))
+        userAuth.add(UserAuth(UUID.randomUUID().toString(), "userB@gmail.com", "UserB", "87654321"))
     }
 
 }

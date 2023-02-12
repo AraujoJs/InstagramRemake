@@ -3,12 +3,12 @@ package co.araujoarthur.instagramremake.register.presentation
 import android.util.Patterns
 import co.araujoarthur.instagramremake.R
 import co.araujoarthur.instagramremake.register.RegisterEmail
-import co.araujoarthur.instagramremake.register.data.RegisterEmailCallback
-import co.araujoarthur.instagramremake.register.data.RegisterEmailRepository
+import co.araujoarthur.instagramremake.register.data.RegisterCallback
+import co.araujoarthur.instagramremake.register.data.RegisterRepository
 
 class RegisterEmailPresenter(
     private var view: RegisterEmail.View? = null,
-    private val repository: RegisterEmailRepository
+    private val repository: RegisterRepository
 ): RegisterEmail.Presenter {
     override fun create(email: String) {
         val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
@@ -16,7 +16,7 @@ class RegisterEmailPresenter(
             view?.displayEmailFailure(R.string.invalid_email)
         } else {
             view?.showProgress(true)
-            repository.login(email, object : RegisterEmailCallback {
+            repository.create(email, object : RegisterCallback {
                 override fun onSuccess() {
                     view?.goToNameAndPasswordScreen(email)
                 }
