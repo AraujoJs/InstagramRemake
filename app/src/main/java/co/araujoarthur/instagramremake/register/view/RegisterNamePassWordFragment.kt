@@ -1,5 +1,6 @@
 package co.araujoarthur.instagramremake.register.view
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -16,6 +17,17 @@ class RegisterNamePassWordFragment: Fragment(R.layout.fragment_register_name_pas
 
     override lateinit var presenter: RegisterNameAndPassword.Presenter
     private var binding: FragmentRegisterNamePasswordBinding? = null
+    private var fragmentAttachListener: FragmentAttachListener? = null
+
+
+    override fun onAttach(context: Context) {
+        if (context is FragmentAttachListener) {
+            fragmentAttachListener = context
+        } else {
+            throw IllegalArgumentException("FragmentAttachListener not found")
+        }
+        super.onAttach(context)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -40,6 +52,7 @@ class RegisterNamePassWordFragment: Fragment(R.layout.fragment_register_name_pas
                         registerPasswordEditPassword.text.toString(),
                         registerConfirmPasswordEditConfirm.text.toString()
                     )
+
                 }
             }
         }
@@ -65,7 +78,7 @@ class RegisterNamePassWordFragment: Fragment(R.layout.fragment_register_name_pas
     }
 
     override fun onCreateSuccess(name: String) {
-        // TODO: Go to welcome screen
+        fragmentAttachListener?.goToWelcomeScreen(name)
     }
 
     override fun onCreateFailure(message: String) {

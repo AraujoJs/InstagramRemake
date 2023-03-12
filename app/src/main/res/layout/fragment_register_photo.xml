@@ -23,7 +23,7 @@
             android:orientation="vertical"
             android:paddingBottom="70dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/register_img_logo"
                 android:layout_marginBottom="48dp"
                 android:src="@drawable/photo_icon"
