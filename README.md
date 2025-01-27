@@ -29,4 +29,4 @@ This project is a remake of Instagram, developed to practice and enhance skills 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/YourUsername/InstagramRemake.git
+   git clone https://github.com/AraujoJs/InstagramRemake.git
