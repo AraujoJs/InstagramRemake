@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import co.araujoarthur.instagramremake.R
 import co.araujoarthur.instagramremake.common.view.CustomDialog
-import co.araujoarthur.instagramremake.common.view.ImageCropperFragment.Companion.KEY_URI
 import co.araujoarthur.instagramremake.databinding.FragmentRegisterPhotoBinding
 
 class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
@@ -36,10 +35,10 @@ class RegisterPhotoFragment : Fragment(R.layout.fragment_register_photo) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setFragmentResultListener("cropkey") { requestKey, bundle ->
-            val uri = bundle.getParcelable<Uri>(KEY_URI)
-            onCropImageView(uri)
-        }
+//        setFragmentResultListener("cropkey") { requestKey, bundle ->
+//            val uri = bundle.getParcelable<Uri>(KEY_URI)
+//            onCropImageView(uri)
+//        }
     }
 
     private fun onCropImageView(uri: Uri?) {

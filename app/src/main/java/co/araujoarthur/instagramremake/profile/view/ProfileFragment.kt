@@ -46,7 +46,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         }
 
         override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-            holder.bind(R.drawable.ic_insta_add)
+            holder.bind(R.drawable.no_image)
         }
 
         override fun getItemCount(): Int {
